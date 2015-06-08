@@ -1,64 +1,36 @@
-Welcome to CST 236 Lab 5
+Kevin Davis CST 236 Lab 5
+
 ------------------------
 
-In this weeks lab you will be building performance tests for 6 new requirements and then adding 4 new answers of your choice. 
-Three of the new answers should use threading and the fourth should involve hard drive access.
+-
 
-You will be developing your own performance requirements for the new answers you add. 
-
-.. note::
-
-    Confidence Spreadsheet is not required for this lab. However the drone.io job is.
-
-Grading
-*******
-
-+---------------------------------------+---------+
-| Proper testing of requirements        | 10 pts  |
-+---------------------------------------+---------+
-| Coding Style / Readability            | 10 pts  |
-+---------------------------------------+---------+
-| Analysis Questions                    | 30 pts  |
-+---------------------------------------+---------+
-| Addition of 4 new answers             | 20 pts  |
-+---------------------------------------+---------+
-| Quality of performance reqs and tests | 20 pts  |
-+---------------------------------------+---------+
-| Drone.io passing                      | 10 pts  |
-+---------------------------------------+---------+
-| **Total**                             | 100 pts |
-+---------------------------------------+---------+
-
-Steps
-*****
-
-#. Pull in the latest code and requirements
-#. Verify tests execute properly
-#. Add performance tests for additional requirements
-#. Add four new answers (3 must be thread based, the fourth involves harddrive access)
-#. Add new performance requirements for functionality
-#. Ensure tests all pass and work on drone.io
-#. For 5 of the performance tests output performance numbers in some format (CSV might be easiest to graph)
-
-.. note:: 
-
-    When developing tests you must consider all the concepts we discussed during lecture and demonstrate you understand
-    how to use them.
-    Load Testing
-    Stress Testing
-    Endurance Testing
-    Spike Testing
-    Configuration Testing
-    Isolation Testing
-    
-
-Analysis Questions
-******************
 
 #. What was the hardest part of this lab?
+
+
+	Making up a performance test and figuring out how to implement it without 
+	knowing what facilities were available for its implementation.
+
 #. What is the difference between performance testing and performance measurement?
+
+
+	Performance testing needs a requirement in order to determine whether the 
+	code passes or fails. Performance measurement just measures current performance.
+
 #. What new bugs did you encounter with the new code?
+
+
+	I did not encounter any new bugs except an occasional glitch that caused 
+	tests one and three to fail together.
+
 #. Did you mock anything to speed up performance testing? Do you see any issues with this?
-#. Generate at least 5 performance measurement value sets and graphs (these sets must be worthwhile)
-#. Explain Load Testing, stress testing, endurance testing, spike testing configuration testing and isolation testing. How did you implement each of these?
+
+
+	I did not mock the perforamance test portion. It seems that it might yeild better
+	results than would be reflected without mock.
+
+
 #. How long did this lab take to accomplish?
+
+	I spent 5-7 hours when the lab was assigned, but had to move on. Now it's been 
+	another 3-4 hours.
