@@ -3,6 +3,7 @@ test for main.py
 """
 import getpass
 import threading
+import os
 from unittest import TestCase
 from pyTona.main import Interface
 from tests.ReqTracer import *
@@ -24,11 +25,6 @@ class TestInterface(TestCase):
     def test_correct_no_previous_question(self):
         result = myInterface2.correct('How are you?')
         self.assertEqual(result, 'Please ask a question first')
-
-    #@requirements(['#0027'])
-    #def test_ask_Fibonacci(self):
-        #result = myInterface.ask('What is the digit of the Fibonacci sequence?')
-     #   self.assertRaises('Too many extra parameters', myInterface.ask('What is the digit of the Fibonacci sequence?'))
 
     @requirements(['#0024', '#0025', '#0026', '#0027'])
     def test_get_other_users(self):
@@ -80,6 +76,34 @@ class TestInterface(TestCase):
         result = myInterface.ask('What if I join the Dark Side?')
         self.assertNotEqual(result, 'Was that a question?')
 
-    #def tearDown(self):
-        #kill_waiting_thread()
-        #self.thread.join()
+    @requirements(['#0030'])
+    def test_million_questions(self):
+        question = "Question {0}"
+        answer = "Asnwer {0}"
+
+        for i in range(0, 1000000, 1):
+            myInterface.last_question = question.format(i)
+            myInterface.correct(answer.format(i))
+        self.assertGreaterEqual(len(myInterface.question_answers), 1000000)
+
+    @requirements(['#0031'])
+    def test_time_5ms(self):
+        myInterface.ask("When are we?")
+        time1 = time.clock()
+        myInterface.teach("The present.")
+        time2 = time.clock()
+        self.assertLessEqual((time2 - time1) * 1000, 5)
+
+    @requirements(['#0034'])
+    def test_do_1000_fib_in1min(self):
+            start = time.clock()
+            for i in range(0,1000):
+                myInterface.ask("What is the {0} digit of the fibonacci sequence?".format(i))
+            end = time.clock()
+
+            self.assertLessEqual((end - start), 60000)
+
+    @requirements(['#0035'])
+    def test_HD_access(self):
+        myInterface.ask("Can you find some stuff?")
+        self.assertEqual(os.stat('stuff.txt').st_size,15L)
